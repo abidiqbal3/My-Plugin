@@ -1,0 +1,266 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8e59d/fast && /usr/bin/make -f CMakeFiles/cmTC_8e59d.dir/build.make CMakeFiles/cmTC_8e59d.dir/build
+make[1]: Entering directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8e59d.dir/src.c.o
+/usr/bin/cc   -fPIC -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_8e59d.dir/src.c.o   -c /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_8e59d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8e59d.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_8e59d.dir/src.c.o  -o cmTC_8e59d 
+/usr/bin/ld: CMakeFiles/cmTC_8e59d.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_8e59d.dir/build.make:87: cmTC_8e59d] Error 1
+make[1]: Leaving directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_8e59d/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_eaee8/fast && /usr/bin/make -f CMakeFiles/cmTC_eaee8.dir/build.make CMakeFiles/cmTC_eaee8.dir/build
+make[1]: Entering directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_eaee8.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_eaee8.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_eaee8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eaee8.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_eaee8.dir/CheckFunctionExists.c.o  -o cmTC_eaee8  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_eaee8.dir/build.make:87: cmTC_eaee8] Error 1
+make[1]: Leaving directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_eaee8/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIMESPEC failed with the following output:
+Change Dir: /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e999f/fast && /usr/bin/make -f CMakeFiles/cmTC_e999f.dir/build.make CMakeFiles/cmTC_e999f.dir/build
+make[1]: Entering directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e999f.dir/src.c.o
+/usr/bin/cc   -fPIC -DHAVE_STRUCT_STAT_ST_MTIMESPEC   -o CMakeFiles/cmTC_e999f.dir/src.c.o   -c /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/src.c
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_mtimespec’
+    7 |   (void)sizeof(((struct stat *)0)->st_mtimespec);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_e999f.dir/build.make:66: CMakeFiles/cmTC_e999f.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_e999f/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtimespec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_MTIME_NSEC failed with the following output:
+Change Dir: /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_764d0/fast && /usr/bin/make -f CMakeFiles/cmTC_764d0.dir/build.make CMakeFiles/cmTC_764d0.dir/build
+make[1]: Entering directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_764d0.dir/src.c.o
+/usr/bin/cc   -fPIC -DHAVE_STRUCT_STAT_MTIME_NSEC   -o CMakeFiles/cmTC_764d0.dir/src.c.o   -c /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/src.c
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/src.c:6:34: error: ‘struct stat’ has no member named ‘st_mtime_nsec’
+    6 |   (void)sizeof(((struct stat *)0)->st_mtime_nsec);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_764d0.dir/build.make:66: CMakeFiles/cmTC_764d0.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_764d0/fast] Error 2
+
+
+Source file was:
+
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test IS_WDOCUMENTATION_SUPPORTED failed with the following output:
+Change Dir: /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6b073/fast && /usr/bin/make -f CMakeFiles/cmTC_6b073.dir/build.make CMakeFiles/cmTC_6b073.dir/build
+make[1]: Entering directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6b073.dir/src.c.o
+/usr/bin/cc   -D_GNU_SOURCE -fPIC -Wall -Wextra -DIS_WDOCUMENTATION_SUPPORTED   -Wdocumentation -o CMakeFiles/cmTC_6b073.dir/src.c.o   -c /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wdocumentation'
+make[1]: *** [CMakeFiles/cmTC_6b073.dir/build.make:66: CMakeFiles/cmTC_6b073.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_6b073/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test IS_WC11_EXTENSIONS_SUPPORTED failed with the following output:
+Change Dir: /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_530ff/fast && /usr/bin/make -f CMakeFiles/cmTC_530ff.dir/build.make CMakeFiles/cmTC_530ff.dir/build
+make[1]: Entering directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_530ff.dir/src.c.o
+/usr/bin/cc   -D_GNU_SOURCE -fPIC -Wall -Wextra -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -DIS_WC11_EXTENSIONS_SUPPORTED   -Wc11-extensions -o CMakeFiles/cmTC_530ff.dir/src.c.o   -c /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wc11-extensions'; did you mean '-fms-extensions'?
+make[1]: *** [CMakeFiles/cmTC_530ff.dir/build.make:66: CMakeFiles/cmTC_530ff.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_530ff/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the prototype qsort_r exists for HAVE_QSORT_R_BSD failed with the following output:
+Change Dir: /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f2395/fast && /usr/bin/make -f CMakeFiles/cmTC_f2395.dir/build.make CMakeFiles/cmTC_f2395.dir/build
+make[1]: Entering directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f2395.dir/CheckPrototypeDefinition.c.o
+/usr/bin/cc   -D_GNU_SOURCE -fPIC -Wall -Wextra -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc99-c11-compat -Wformat -Wformat-security -Wmissing-declarations    -o CMakeFiles/cmTC_f2395.dir/CheckPrototypeDefinition.c.o   -c /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:6: error: conflicting types for ‘qsort_r’
+   14 | void qsort_r(void *base, size_t nmemb, size_t size, void *thunk, int (*compar)(void *, const void *, const void *)) {
+      |      ^~~~~~~
+In file included from /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:1:
+/usr/include/stdlib.h:833:13: note: previous declaration of ‘qsort_r’ was here
+  833 | extern void qsort_r (void *__base, size_t __nmemb, size_t __size,
+      |             ^~~~~~~
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c: In function ‘qsort_r’:
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:20: warning: unused parameter ‘base’ [-Wunused-parameter]
+   14 | void qsort_r(void *base, size_t nmemb, size_t size, void *thunk, int (*compar)(void *, const void *, const void *)) {
+      |              ~~~~~~^~~~
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:33: warning: unused parameter ‘nmemb’ [-Wunused-parameter]
+   14 | void qsort_r(void *base, size_t nmemb, size_t size, void *thunk, int (*compar)(void *, const void *, const void *)) {
+      |                          ~~~~~~~^~~~~
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:47: warning: unused parameter ‘size’ [-Wunused-parameter]
+   14 | void qsort_r(void *base, size_t nmemb, size_t size, void *thunk, int (*compar)(void *, const void *, const void *)) {
+      |                                        ~~~~~~~^~~~
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:59: warning: unused parameter ‘thunk’ [-Wunused-parameter]
+   14 | void qsort_r(void *base, size_t nmemb, size_t size, void *thunk, int (*compar)(void *, const void *, const void *)) {
+      |                                                     ~~~~~~^~~~~
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:72: warning: unused parameter ‘compar’ [-Wunused-parameter]
+   14 | void qsort_r(void *base, size_t nmemb, size_t size, void *thunk, int (*compar)(void *, const void *, const void *)) {
+      |                                                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-documentation-deprecated-sync’
+make[1]: *** [CMakeFiles/cmTC_f2395.dir/build.make:66: CMakeFiles/cmTC_f2395.dir/CheckPrototypeDefinition.c.o] Error 1
+make[1]: Leaving directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_f2395/fast] Error 2
+
+
+
+#include <stdlib.h>
+
+
+static void cmakeRequireSymbol(int dummy, ...) {
+  (void) dummy;
+}
+
+static void checkSymbol(void) {
+#ifndef qsort_r
+  cmakeRequireSymbol(0, &qsort_r);
+#endif
+}
+
+void qsort_r(void *base, size_t nmemb, size_t size, void *thunk, int (*compar)(void *, const void *, const void *)) {
+  return ;
+}
+
+#ifdef __CLASSIC_C__
+int main() {
+  int ac;
+  char*av[];
+#else
+int main(int ac, char *av[]) {
+#endif
+  checkSymbol();
+  if (ac > 1000) {
+    return *av[0];
+  }
+  return 0;
+}
+
+
+Determining if the function qsort_s exists failed with the following output:
+Change Dir: /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6c1cb/fast && /usr/bin/make -f CMakeFiles/cmTC_6c1cb.dir/build.make CMakeFiles/cmTC_6c1cb.dir/build
+make[1]: Entering directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6c1cb.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -D_GNU_SOURCE -fPIC -Wall -Wextra -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc99-c11-compat -Wformat -Wformat-security -Wmissing-declarations -DCHECK_FUNCTION_EXISTS=qsort_s   -o CMakeFiles/cmTC_6c1cb.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6c1cb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c1cb.dir/link.txt --verbose=1
+/usr/bin/cc -D_GNU_SOURCE -fPIC -Wall -Wextra -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc99-c11-compat -Wformat -Wformat-security -Wmissing-declarations -DCHECK_FUNCTION_EXISTS=qsort_s    CMakeFiles/cmTC_6c1cb.dir/CheckFunctionExists.c.o  -o cmTC_6c1cb 
+/usr/bin/ld: CMakeFiles/cmTC_6c1cb.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `qsort_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_6c1cb.dir/build.make:87: cmTC_6c1cb] Error 1
+make[1]: Leaving directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_6c1cb/fast] Error 2
+
+
+
+Determining if the include file windows.h exists failed with the following output:
+Change Dir: /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f9276/fast && /usr/bin/make -f CMakeFiles/cmTC_f9276.dir/build.make CMakeFiles/cmTC_f9276.dir/build
+make[1]: Entering directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f9276.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -D_GNU_SOURCE -fPIC -Wall -Wextra -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc99-c11-compat -Wformat -Wformat-security -Wmissing-declarations    -o CMakeFiles/cmTC_f9276.dir/CheckIncludeFile.c.o   -c /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: windows.h: No such file or directory
+    1 | #include <windows.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_f9276.dir/build.make:66: CMakeFiles/cmTC_f9276.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_f9276/fast] Error 2
+
+
+
+Determining if the function _strtoi64 exists failed with the following output:
+Change Dir: /home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_aec67/fast && /usr/bin/make -f CMakeFiles/cmTC_aec67.dir/build.make CMakeFiles/cmTC_aec67.dir/build
+make[1]: Entering directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aec67.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -D_GNU_SOURCE -fPIC -Wall -Wextra -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc99-c11-compat -Wformat -Wformat-security -Wmissing-declarations -DCHECK_FUNCTION_EXISTS=_strtoi64   -o CMakeFiles/cmTC_aec67.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_aec67
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aec67.dir/link.txt --verbose=1
+/usr/bin/cc -D_GNU_SOURCE -fPIC -Wall -Wextra -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc99-c11-compat -Wformat -Wformat-security -Wmissing-declarations -DCHECK_FUNCTION_EXISTS=_strtoi64    CMakeFiles/cmTC_aec67.dir/CheckFunctionExists.c.o  -o cmTC_aec67 
+/usr/bin/ld: CMakeFiles/cmTC_aec67.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `_strtoi64'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_aec67.dir/build.make:87: cmTC_aec67] Error 1
+make[1]: Leaving directory '/home/abid/discourse/plugins/discourse-code-review/gems/2.7.6/gems/rugged-1.2.0/vendor/libgit2/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_aec67/fast] Error 2
+
+
+

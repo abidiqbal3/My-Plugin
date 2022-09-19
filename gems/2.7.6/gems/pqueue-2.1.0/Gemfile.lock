@@ -1,0 +1,24 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ae (1.8.2)
+      ansi
+    ansi (1.4.3)
+    indexer (0.3.1)
+    microtest (0.2.1)
+      rubytest
+    rubytest (0.7.0)
+      ansi
+    rubytest-cli (0.1.0)
+      ansi
+      rubytest (>= 0.7.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ae
+  indexer
+  microtest
+  rubytest
+  rubytest-cli
